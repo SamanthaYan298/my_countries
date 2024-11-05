@@ -1,0 +1,116 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  text-align: left;
+}
+
+.container {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 2rem;
+  padding: 1em;
+  text-align: center;
+}
+
+.container p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.alpha {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+  margin-top: 0;
+}
+
+.alpha input {
+  margin-top: -44px;
+}
+
+.inner-container {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+.filters {
+  display: flex;
+  gap: 1em;
+  text-align: left;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 1px 0px;
+}
+
+.categories {
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+}
+
+/* cards */
+
+.outer-container {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.cards-container {
+  width: 400px;
+  height: auto;
+  margin-top: 0.5rem;
+}
+
+.cards {
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px 0px;
+}
+
+.cards-header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(238, 238, 238);
+  max-height: 57px;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+.name {
+  padding-left: 1rem;
+  padding-top: 0;
+  margin-top: 1rem;
+}
+
+.cards-header img {
+  width: 100%;
+  height: auto;
+  max-width: 8.5rem;
+  max-height: 3.5rem;
+  object-fit: contain;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.country-info {
+  margin: 1rem;
+}
+
+.country-info p {
+  display: flex;
+}
+
+.country-info p span {
+  display: flex;
+  flex-basis: 50%;
+  text-align: left;
+}
+
+.links {
+  padding-bottom: 5rem;
+  text-align: left;
+}

@@ -1,0 +1,46 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.container p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+}
+
+.alpha {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+  margin-top: 0;
+}
+
+.alpha input {
+  margin-top: -41px;
+}
+
+.filters {
+  gap: 1rem;
+  text-align: left;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 1px 0px;
+}
+
+.categories {
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+}

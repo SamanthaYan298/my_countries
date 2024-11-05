@@ -1,0 +1,27 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+
+.alpha {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}

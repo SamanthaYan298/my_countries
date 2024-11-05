@@ -1,0 +1,90 @@
+#root {
+  max-width: 100%;
+  padding: 0;
+  top: 0;
+  margin: 0 0 0 2em;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.inner-container {
+  text-align: center;
+}
+
+.container p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+}
+
+.alpha {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+  margin-top: 0;
+}
+
+.alpha input {
+  margin-top: -44px;
+}
+
+.filters {
+  gap: 1rem;
+  text-align: left;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 1px 0px;
+}
+
+.categories {
+  padding: 0.5rem 1rem;
+  background-color: rgb(238, 238, 238);
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Creates responsive columns */
+  gap: 1em;
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border: 1px solid #ddd;
+}
+
+.cards-header {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(238, 238, 238);
+  max-height: 50px;
+}
+
+.cards-header img {
+  width: 100%;
+  height: auto;
+  max-width: 8.5rem;
+  max-height: 3.5rem;
+  object-fit: contain;
+}
+
+.country-info {
+  margin: 1rem;
+}
+
+country-info p span {
+  flex-basis: 50%;
+  text-align: left;
+}
