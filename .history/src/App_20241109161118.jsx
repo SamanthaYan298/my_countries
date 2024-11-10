@@ -18,7 +18,6 @@ function App() {
   const [sortByArea, setSortByArea] = useState(false);
   const [selectedContinent, setSelectedContinent] = useState('All');
   const [selectedSubregion, setSelectedSubregion] = useState('Choose region');
-  const [sortByAlpha, setSortByAlpha] = useState(false); 
 
   function handleSortByPopulationChange() {
     setSortByPopulation(!sortByPopulation);
@@ -30,6 +29,16 @@ function App() {
     setSortByPopulation(false);
   }
   
+  function handleContinentChange(event) {
+    setSelectedContinent(event.target.value);
+  }
+  
+  function handleSubregionChange(event) {
+    setSelectedSubregion(event.target.value);
+  }
+  
+
+
   // load data on mount - only load once
   useEffect(() => {
     const url = `https://restcountries.com/v3.1/all`;
@@ -57,55 +66,6 @@ function App() {
   }, [query]);
 
 
-
-  // Category options and functions 
-  let filteredCountries = [...countries];
-
-  // Sort alphabetically
-  if (sortByAlpha) {
-    filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-  }
-
-  // By contient
-  if (selectedContinent !== 'All') {
-    filteredCountries = filteredCountries.filter(country => 
-      country.continents && country.continents.includes(selectedContinent)
-    );
-  }
-
-  // By subregion
-  if (selectedSubregion !== 'Choose region') {
-    filteredCountries = filteredCountries.filter(country => 
-      country.subregion === selectedSubregion
-    );
-  }
-
-  // By population
-  if (sortByPopulation) {
-    filteredCountries.sort((a, b) => b.population - a.population);
-  }
-
-  // By area
-  if (sortByArea) {
-    filteredCountries.sort((a, b) => b.area - a.area);
-  }
-
-  // Handle continent and subregion selection
-  const handleContinentChange = (e) => {
-    setSelectedContinent(e.target.value);
-    if (e.target.value !== 'All') {
-      setSelectedSubregion('Choose region'); // Reset subregion when a continent is selected
-    }
-  };
-
-  const handleSubregionChange = (e) => {
-    setSelectedSubregion(e.target.value);
-    if (e.target.value !== 'Choose region') {
-      setSelectedContinent('All'); // Reset continent when a subregion is selected
-    }
-  };
-
-
   return (
     <>
       <h1>Countries of the World</h1>
@@ -114,12 +74,7 @@ function App() {
           <p>Filter & Sort</p>
           <div className='filters'>
             <div className='alpha'>
-              <input 
-                type="checkbox" 
-                id="alpha"
-                checked={sortByAlpha}
-                onChange={() => setSortByAlpha(!sortByAlpha)} 
-                />
+              <input type="checkbox" id="alpha" />
               <label htmlFor="alpha">Alpha</label>
             </div>
             <div className='categories'>
@@ -161,10 +116,7 @@ function App() {
             </div>
             <div  className='categories'>
               <p>By subregion</p>
-              <select
-                value={selectedSubregion} 
-                onChange={handleSubregionChange}
-              >
+              <select>
                 <option value="Choose region">Choose region</option>
                 <option value="Caribbean">Caribbean</option>
                 <option value="Western Europe">Western Europe</option>
@@ -184,7 +136,7 @@ function App() {
       {isLoading ? <p>Loading ...</p>
       : isError? <p>Something went wrong!</p>
       : <>
-          <Countries countries={filteredCountries} />
+          <Countries countries={countries} />
         </>
       }
     </>

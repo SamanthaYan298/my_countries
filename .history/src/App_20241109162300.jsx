@@ -56,9 +56,6 @@ function App() {
 
   }, [query]);
 
-
-
-  // Category options and functions 
   let filteredCountries = [...countries];
 
   // Sort alphabetically
@@ -73,7 +70,7 @@ function App() {
     );
   }
 
-  // By subregion
+  // By area
   if (selectedSubregion !== 'Choose region') {
     filteredCountries = filteredCountries.filter(country => 
       country.subregion === selectedSubregion

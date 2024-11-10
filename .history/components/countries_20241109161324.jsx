@@ -2,6 +2,33 @@ import '../src/App.css'
 
 function Countries({ countries }) {
 
+  let filteredCountries = [...countries];
+
+// 按大陆筛选
+if (selectedContinent !== 'All') {
+  filteredCountries = filteredCountries.filter(country => 
+    country.continents && country.continents.includes(selectedContinent)
+  );
+}
+
+// 按次区域筛选
+if (selectedSubregion !== 'Choose region') {
+  filteredCountries = filteredCountries.filter(country => 
+    country.subregion === selectedSubregion
+  );
+}
+
+// 按人口排序
+if (sortByPopulation) {
+  filteredCountries.sort((a, b) => b.population - a.population);
+}
+
+// 按面积排序
+if (sortByArea) {
+  filteredCountries.sort((a, b) => b.area - a.area);
+}
+
+
     return (
       <div className='outer-container'>
         {countries.map((country, index) => (

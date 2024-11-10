@@ -30,6 +30,16 @@ function App() {
     setSortByPopulation(false);
   }
   
+  function handleContinentChange(event) {
+    setSelectedContinent(event.target.value);
+  }
+  
+  function handleSubregionChange(event) {
+    setSelectedSubregion(event.target.value);
+  }
+  
+
+
   // load data on mount - only load once
   useEffect(() => {
     const url = `https://restcountries.com/v3.1/all`;
@@ -56,54 +66,31 @@ function App() {
 
   }, [query]);
 
-
-
-  // Category options and functions 
   let filteredCountries = [...countries];
 
-  // Sort alphabetically
-  if (sortByAlpha) {
-    filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-  }
+// 按大陆筛选
+if (selectedContinent !== 'All') {
+  filteredCountries = filteredCountries.filter(country => 
+    country.continents && country.continents.includes(selectedContinent)
+  );
+}
 
-  // By contient
-  if (selectedContinent !== 'All') {
-    filteredCountries = filteredCountries.filter(country => 
-      country.continents && country.continents.includes(selectedContinent)
-    );
-  }
+// 按次区域筛选
+if (selectedSubregion !== 'Choose region') {
+  filteredCountries = filteredCountries.filter(country => 
+    country.subregion === selectedSubregion
+  );
+}
 
-  // By subregion
-  if (selectedSubregion !== 'Choose region') {
-    filteredCountries = filteredCountries.filter(country => 
-      country.subregion === selectedSubregion
-    );
-  }
+// 按人口排序
+if (sortByPopulation) {
+  filteredCountries.sort((a, b) => b.population - a.population);
+}
 
-  // By population
-  if (sortByPopulation) {
-    filteredCountries.sort((a, b) => b.population - a.population);
-  }
-
-  // By area
-  if (sortByArea) {
-    filteredCountries.sort((a, b) => b.area - a.area);
-  }
-
-  // Handle continent and subregion selection
-  const handleContinentChange = (e) => {
-    setSelectedContinent(e.target.value);
-    if (e.target.value !== 'All') {
-      setSelectedSubregion('Choose region'); // Reset subregion when a continent is selected
-    }
-  };
-
-  const handleSubregionChange = (e) => {
-    setSelectedSubregion(e.target.value);
-    if (e.target.value !== 'Choose region') {
-      setSelectedContinent('All'); // Reset continent when a subregion is selected
-    }
-  };
+// 按面积排序
+if (sortByArea) {
+  filteredCountries.sort((a, b) => b.area - a.area);
+}
 
 
   return (
@@ -114,12 +101,7 @@ function App() {
           <p>Filter & Sort</p>
           <div className='filters'>
             <div className='alpha'>
-              <input 
-                type="checkbox" 
-                id="alpha"
-                checked={sortByAlpha}
-                onChange={() => setSortByAlpha(!sortByAlpha)} 
-                />
+              <input type="checkbox" id="alpha" />
               <label htmlFor="alpha">Alpha</label>
             </div>
             <div className='categories'>

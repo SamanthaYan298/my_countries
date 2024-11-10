@@ -22,12 +22,10 @@ function App() {
 
   function handleSortByPopulationChange() {
     setSortByPopulation(!sortByPopulation);
-    setSortByArea(false);
   }
   
   function handleSortByAreaChange() {
     setSortByArea(!sortByArea);
-    setSortByPopulation(false);
   }
   
   // load data on mount - only load once
@@ -73,7 +71,7 @@ function App() {
     );
   }
 
-  // By subregion
+  // By area
   if (selectedSubregion !== 'Choose region') {
     filteredCountries = filteredCountries.filter(country => 
       country.subregion === selectedSubregion

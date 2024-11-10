@@ -73,7 +73,7 @@ function App() {
     );
   }
 
-  // By subregion
+  // By area
   if (selectedSubregion !== 'Choose region') {
     filteredCountries = filteredCountries.filter(country => 
       country.subregion === selectedSubregion

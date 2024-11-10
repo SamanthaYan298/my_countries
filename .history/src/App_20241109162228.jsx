@@ -56,9 +56,6 @@ function App() {
 
   }, [query]);
 
-
-
-  // Category options and functions 
   let filteredCountries = [...countries];
 
   // Sort alphabetically
@@ -66,14 +63,14 @@ function App() {
     filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
   }
 
-  // By contient
+  // 按大陆筛选
   if (selectedContinent !== 'All') {
     filteredCountries = filteredCountries.filter(country => 
       country.continents && country.continents.includes(selectedContinent)
     );
   }
 
-  // By subregion
+  // By area
   if (selectedSubregion !== 'Choose region') {
     filteredCountries = filteredCountries.filter(country => 
       country.subregion === selectedSubregion

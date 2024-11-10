@@ -19,16 +19,6 @@ function App() {
   const [selectedContinent, setSelectedContinent] = useState('All');
   const [selectedSubregion, setSelectedSubregion] = useState('Choose region');
   const [sortByAlpha, setSortByAlpha] = useState(false); 
-
-  function handleSortByPopulationChange() {
-    setSortByPopulation(!sortByPopulation);
-    setSortByArea(false);
-  }
-  
-  function handleSortByAreaChange() {
-    setSortByArea(!sortByArea);
-    setSortByPopulation(false);
-  }
   
   // load data on mount - only load once
   useEffect(() => {

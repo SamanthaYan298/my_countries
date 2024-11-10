@@ -22,12 +22,10 @@ function App() {
 
   function handleSortByPopulationChange() {
     setSortByPopulation(!sortByPopulation);
-    setSortByArea(false);
   }
   
   function handleSortByAreaChange() {
     setSortByArea(!sortByArea);
-    setSortByPopulation(false);
   }
   
   // load data on mount - only load once

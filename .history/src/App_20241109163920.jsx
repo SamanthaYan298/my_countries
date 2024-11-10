@@ -19,16 +19,6 @@ function App() {
   const [selectedContinent, setSelectedContinent] = useState('All');
   const [selectedSubregion, setSelectedSubregion] = useState('Choose region');
   const [sortByAlpha, setSortByAlpha] = useState(false); 
-
-  function handleSortByPopulationChange() {
-    setSortByPopulation(!sortByPopulation);
-    setSortByArea(false);
-  }
-  
-  function handleSortByAreaChange() {
-    setSortByArea(!sortByArea);
-    setSortByPopulation(false);
-  }
   
   // load data on mount - only load once
   useEffect(() => {
@@ -81,15 +71,22 @@ function App() {
   }
 
   // By population
-  if (sortByPopulation) {
-    filteredCountries.sort((a, b) => b.population - a.population);
+  function handleSortByPopulationChange() {
+    setSortByPopulation(!sortByPopulation);
+    if (!sortByPopulation) {
+        setSortByArea(false); // 取消 'byArea'
+    }
   }
 
   // By area
-  if (sortByArea) {
-    filteredCountries.sort((a, b) => b.area - a.area);
+  function handleSortByAreaChange() {
+    setSortByArea(!sortByArea);
+    if (!sortByArea) {
+        setSortByPopulation(false); // 取消 'byPopulation'
+    }
   }
 
+  
   // Handle continent and subregion selection
   const handleContinentChange = (e) => {
     setSelectedContinent(e.target.value);
