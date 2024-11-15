@@ -62,13 +62,12 @@ h1 {
 
 .cards-container {
   width: 400px;
-  height: 560px;
-  margin-top: 0.25rem;
+  height: 600px;
+  margin-top: 0.5rem;
 }
 
 .cards {
   width: 400px;
-  height: 560px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px 0px;
   box-sizing: border-box;
   overflow: hidden;
@@ -100,9 +99,9 @@ h1 {
 }
 
 .country-info {
-  display: block;
-  unicode-bidi: isolate;
   margin: 1rem;
+  overflow: auto;
+  max-height: 580px;
 }
 
 .country-info p {

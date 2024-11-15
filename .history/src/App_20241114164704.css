@@ -63,7 +63,8 @@ h1 {
 .cards-container {
   width: 400px;
   height: 560px;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .cards {

@@ -62,13 +62,14 @@ h1 {
 
 .cards-container {
   width: 400px;
-  height: 560px;
-  margin-top: 0.25rem;
+  height: 600px;
+  margin-top: 0.5rem;
+  margin-bottom: 4.5rem;
 }
 
 .cards {
   width: 400px;
-  height: 560px;
+  height: 600px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px 0px;
   box-sizing: border-box;
   overflow: hidden;
